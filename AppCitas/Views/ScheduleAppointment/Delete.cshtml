@@ -1,0 +1,74 @@
+﻿@model AppCitas.Models.ScheduleAppointment
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+<div>
+    <h4>Eliminar cita programada</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Id
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdScheduleAppointment)
+        </dd>
+        <dt class="col-sm-2">
+            Prestación
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Performance)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha Cita
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateHourAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            Fecha de Creación
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateCreation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RUN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RUN)
+        </dd>
+        <dt class = "col-sm-2">
+            Nombre del Paciente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatientNames)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdAppointments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdAppointments)
+        </dd>
+        <dt class = "col-sm-2">
+            Estado
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StatusAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            Referencia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Reference)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>

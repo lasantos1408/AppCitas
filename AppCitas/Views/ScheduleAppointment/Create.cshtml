@@ -1,0 +1,82 @@
+﻿@model AppCitas.Models.ScheduleAppointment
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Crear</h1>
+
+<h4>Programar Cita</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                    <label asp-for="IdScheduleAppointment" class="control-label"></label>
+                    <input asp-for="IdScheduleAppointment" class="form-control" readonly="readonly"/>
+                    <span asp-validation-for="IdScheduleAppointment" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label class="control-label">Prestación</label>
+                <input asp-for="Performance" class="form-control" />
+                <span asp-validation-for="Performance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Fecha y hora de cita</label>
+                <input asp-for="DateHourAppointment" class="form-control" />
+                <span asp-validation-for="DateHourAppointment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fecha de creación</label>
+                <input asp-for="DateCreation" class="form-control"/>
+                <span asp-validation-for="DateCreation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RUN" class="control-label"></label>
+                <input asp-for="RUN" class="form-control" value="@TempData["RUN"].ToString()" readonly="readonly"/> @*value="@TempData["RUN"].ToString()" readonly="readonly"*@
+                <span asp-validation-for="RUN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*@Html.TextBox(TempData["nombres"].ToString(), TempData["nombres"].ToString(), "", "form-control")*@
+                <label class="control-label">Nombres del paciente</label>
+                <input asp-for="PatientNames" class="form-control" value="@TempData["nombres"].ToString()" readonly="readonly"/> @*value="@TempData["nombres"].ToString()" readonly="readonly"*@
+                <span asp-validation-for="PatientNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Cita
+                @Html.DropDownListFor(m => m.IdAppointments, (IEnumerable<SelectListItem>)ViewBag.cursoLista, "Seleccione la cita", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IdAppointments, "", new { @class = "text-danger" })
+
+                @*<label asp-for="IdAppointments" class="control-label"></label>
+                    <input asp-for="IdAppointments" class="form-control" />
+                    <span asp-validation-for="IdAppointments" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                @*Estado
+                @Html.DropDownListFor(m => m.StatusAppointment, (IEnumerable<SelectListItem>)ViewBag.listEstado, "Seleccione el estado", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StatusAppointment, "", new { @class = "text-danger" })*@
+
+
+                <label class="control-label">Estado Cita</label>
+        <input asp-for="StatusAppointment" class="form-control" />
+        <span asp-validation-for="StatusAppointment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Referencia</label>
+                <input asp-for="Reference" class="form-control" />
+                <span asp-validation-for="Reference" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" >
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+

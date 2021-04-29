@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AppCitas.Models.Appointments>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva Cita</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Tipo de servicio
+            </th>
+            <th>
+                Establecimiento
+            </th>
+            <th>
+                Profesional
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAppointments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionApp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Establishment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Professional)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new {  id=item.IdAppointments  }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.IdAppointments }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdAppointments })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

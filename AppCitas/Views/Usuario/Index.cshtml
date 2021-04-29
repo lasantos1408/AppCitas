@@ -1,0 +1,37 @@
+﻿@model List<AppCitas.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Listado Usuarios</h1>
+<p>
+    <a class="nav-link text-primary" asp-area="Identity" asp-page="/Account/Register">+ Nuevo Usuario</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Nombres</td>
+                <td>@user.Apellidos</td>
+                <td>@user.Email</td>
+                <td>
+                    @*<a asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.Id">Gestionar Roles</a> |*@
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" asp-route-userId="@user.Id" title="Manage"> Editar Usuario </a> |  
+                    <a asp-area="Identity" asp-page="/Account/Manage/DeletePersonalData" asp-route-userId="@user.Id" title="Manage"> Eliminar Usuario </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

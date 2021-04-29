@@ -1,0 +1,87 @@
+﻿@model IEnumerable<AppCitas.Models.ScheduleAppointment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id @*@Html.DisplayNameFor(model => model.IdScheduleAppointment)*@
+            </th>
+            <th>
+               Prestación @*@Html.DisplayNameFor(model => model.Performance)*@
+            </th>
+            <th>
+               Fecha de cita @*@Html.DisplayNameFor(model => model.DateHourAppointment)*@
+            </th>
+            <th>
+               Fecha de creación @*@Html.DisplayNameFor(model => model.DateCreation)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RUN)
+            </th>
+            <th>
+               Nombre Paciente  @*@Html.DisplayNameFor(model => model.PatientNames)*@
+            </th>
+            <th>
+              Id Cita  @*@Html.DisplayNameFor(model => model.IdAppointments)*@
+            </th>
+            <th>
+              Estado Cita  @*@Html.DisplayNameFor(model => model.StatusAppointment)*@
+            </th>
+            <th>
+               Referencia @*@Html.DisplayNameFor(model => model.Reference)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    @if (TempData["RUN"].ToString() == item.RUN)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdScheduleAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Performance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateHourAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RUN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientNames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAppointments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusAppointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reference)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.IdScheduleAppointment }) |
+                @Html.ActionLink("Detalle", "Details", new { id = item.IdScheduleAppointment }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdScheduleAppointment })
+            </td>
+        </tr>
+        }
+    }
+    </tbody>
+</table>

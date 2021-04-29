@@ -1,0 +1,73 @@
+﻿@model AppCitas.Models.ScheduleAppointment
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <h4>Cita Detalle</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdScheduleAppointment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdScheduleAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Performance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Performance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateHourAppointment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateHourAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateCreation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RUN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RUN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PatientNames)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatientNames)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdAppointments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdAppointments)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StatusAppointment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StatusAppointment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Reference)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Reference)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Regresar</a>
+</div>

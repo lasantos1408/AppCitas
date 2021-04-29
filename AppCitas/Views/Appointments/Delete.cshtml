@@ -1,0 +1,51 @@
+﻿@model AppCitas.Models.Appointments
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+
+<div>
+    <h4>Cita</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Id
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdAppointments)
+        </dd>
+        <dt class = "col-sm-2">
+            Descripción
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionApp)
+        </dd>
+        <dt class = "col-sm-2">
+            Tipo de Servicio
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServiceType)
+        </dd>
+        <dt class = "col-sm-2">
+           Establecimiento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Establishment)
+        </dd>
+        <dt class = "col-sm-2">
+            Profesional
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Professional)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>
